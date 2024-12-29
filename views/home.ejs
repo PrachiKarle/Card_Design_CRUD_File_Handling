@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <%- include('cdn_link.ejs')%>
+  </head>
+  <body>
+    <div class="container-fluid bg-dark fw-bold text-light p-3 text-center">
+      <a href="/admin"><button class="btn btn-danger">Admin Panel</button></a>
+    </div>
+
+    <div class="row m-0 p-2">
+      <% data.map((val,i)=>{ %>
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+        <div class="card m-2" style="width: 18rem; height:300px">
+          <img
+            src="/uploads/<%= val.cardImg%>"
+            class="card-img-top" height="70%"
+            alt="<%= val.cardImg%>"
+          />
+          <div class="card-body" class="p-2">
+            <h5 class="card-title"><%= val.cardName%></h5>
+            <p class="card-text"><%= val.cardCaption%></p>
+          </div>
+        </div>
+      </div>
+      <%})%>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('cdn_link.ejs')%>
+</head>
+<body>
+    <h1 class="bg-dark text-center text-light fw-bold p-3">Add Card</h1>
+
+    <form action="/saveCard" method="post" enctype="multipart/form-data" class="p-5">
+         <div class="form-group my-3 ">
+            <label for="">Card Title</label>
+            <input type="text" name="card_title" class="form-control">
+         </div>
+         <div class="form-group my-3 ">
+            <label for="">Card Caption</label>
+            <input type="text" name="card_caption" class="form-control">
+         </div>
+         <div class="form-group my-3 ">
+            <label for="">Upload Card Image</label>
+            <input type="file" name="card_image" class="form-control">
+         </div>
+         <div class="form-group my-3 text-center">
+           <button class="btn btn-dark">Upload Card</button> 
+         </div>
+    </form>
+</body>
+</html>

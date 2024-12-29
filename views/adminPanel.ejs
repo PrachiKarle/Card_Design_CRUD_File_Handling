@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <%- include('cdn_link.ejs')%>
+  </head>
+  <body>
+    <h2 class="bg-dark text-light fw-bold text-center p-2">Admin Panel</h2>
+    <a href="/add_card"
+      ><button class="btn btn-danger p-2 m-3">Add Card</button></a
+    >
+
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Sr No</th>
+          <th>Id</th>
+          <th>Card Title</th>
+          <th>Card Caption</th>
+          <th>Card Image</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.map((val,i)=>{ %>
+        <tr>
+          <td><%= i+1%></td>
+          <td><%= val.cardId%></td>
+          <td><%= val.cardName%></td>
+          <td><%= val.cardCaption%></td>
+          <td>
+            <img
+              src="uploads/<%= val.cardImg%>"
+              height="120px"
+              width="200px"
+              alt="<%= val.cardImg%>"
+            />
+          </td>
+          <td>
+            <a href="/delete/<%= val.cardId%>" onclick="return confirm('Are you sure ? ')">
+              <i class="fa fa-trash text-danger"></i>
+            </a>
+          </td>
+          <td>
+            <a href="/edit/<%= val.cardId%>" onclick="return confirm('Are you sure ? ')">
+              <i class="fa fa-edit text-success"></i>
+            </a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
